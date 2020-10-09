@@ -5,8 +5,12 @@ class TweetsController < ApplicationController
   # GET /tweets
   # GET /tweets.json
   def index
-    @tweets = Tweet.all.order('created_at DESC')
-    @tweet = Tweet.new
+   if user_signed_in?
+      @tweets = Tweet.all.order('created_at DESC')
+      @tweet = Tweet.new
+   else
+    redirect_to new_user_session_path
+   end
   end
 
   # GET /tweets/1
