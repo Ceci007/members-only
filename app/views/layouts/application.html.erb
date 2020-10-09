@@ -11,16 +11,6 @@
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <div class="notification is-primary global-notification">
-        <p class="notice"><%= notice %></p>
-      </div>
-    <% end %>
-    <% if flash[:alert] %>
-      <div class="notification is-danger global-notification">
-        <p class="alert"><%= alert %></p>
-      </div>
-    <% end %>
     <nav class="navbar is-black" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
         <%= link_to root_path, class: 'navbar-item' do %>
@@ -37,16 +27,20 @@
         <div class="navbar-end">
           <div class="navbar-item">
             <div class="buttons">
-              <%= link_to 'New Tweet', new_tweet_path, class: 'button is-info' %>
-              <div class='button is-light'>
-                Sign up
-              </div>
+              <%= link_to 'New Tweeet', root_path, class: "button is-info" %>
+              <% if user_signed_in? %>
+                <%= link_to current_user.name, edit_user_registration_path, class: 'button is-light' %>
+                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'button is-light' %>
+              <% else %>
+                <%= link_to 'Sign in', new_user_session_path, class: 'button is-light' %>
+                <%= link_to 'Sign up', new_user_registration_path, class: 'button is-light' %>
+              <% end %>
             </div>
           </div>
         </div>
       </div>
-      
     </nav>
+    <%= render 'layouts/messages' %>
     <%= yield %>
   </body>
 </html>
