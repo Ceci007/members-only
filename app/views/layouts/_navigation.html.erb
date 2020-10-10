@@ -16,6 +16,7 @@
             <div class="buttons">
               <%= link_to 'New Tweeet', root_path, class: "button is-info" %>
               <% if user_signed_in? %>
+                <%= link_to 'Members profile', users_path, class: "button is-light" %>
                 <%= link_to current_user.name, edit_user_registration_path, class: 'button is-light' %>
                 <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'button is-light' %>
               <% else %>

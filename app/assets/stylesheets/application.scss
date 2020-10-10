@@ -32,8 +32,21 @@
    margin-bottom: 0;
 } 
 
-.link:hover, i, span {
+.link:hover {
   background-color: transparent !important;
+  text-decoration: underline;
+  color: blue;
+}
+
+.transparent {
+  background-color: transparent !important;
+  color: black;
+}
+
+.transparent:hover {
+  color: blue;
 }
 
 .my-10 { margin: 20px auto !important; }
+
+.p-all { padding: 20px 10px !important }
