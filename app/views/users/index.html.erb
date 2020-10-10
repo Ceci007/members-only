@@ -1,4 +1,4 @@
-<div class="container" >
+<div class="container my-10" >
   <h1 class="title my-10">list of profiles</h1>
     <% @users.each do |user| %>
       <nav class="panel">
@@ -14,7 +14,7 @@
               <div class="content">
                 <p>
                   <strong><%= link_to user.name, user, class: 'link' %></strong><br />
-                  <small><%= user.username %></small>
+                  <small>@<%= user.username %></small>
                 </p>
               </div>
             </div>
@@ -42,9 +42,14 @@
             </div>
           </div>
         </div>
-        <div class="content p-all">
+        <div class="panel-block">
           <time datetime="2016-1-1">Joined <%= time_ago_in_words(user.created_at) %> ago</time>
-        </div>
+          </div>
+        <% if user_signed_in? && current_user.admin? %>
+          <div class="buttons p-all-small">
+            <%= link_to 'Delete', user_path(user), class: "button is-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
       </nav>
     <% end %>
 </div>

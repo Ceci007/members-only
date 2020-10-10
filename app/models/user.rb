@@ -6,5 +6,5 @@ class User < ApplicationRecord
          # :confirmable,
          # :omniauthable, :omniauth_providers => [:google_oauth2]
 
-  has_many :tweets
+  has_many :tweets, dependent: :destroy
 end
