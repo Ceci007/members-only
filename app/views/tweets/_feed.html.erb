@@ -14,16 +14,26 @@
 <% @tweets.each do |tweet| %>
   <div class="box">
     <article class='media'>
-      <div class="media-left">
-        <figure class="image is-64x64">
-          <%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
-        </figure>
-      </div>
+      <% if user_signed_in? && (current_user.id == tweet.user_id || current_user.members_only?) %>
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
+          </figure>
+        </div>
+      <% else %>
+        <div class="media-left">
+          <figure class="image is-64x64">
+            <%= image_tag("user_unavailable.jpg", alt: "unavailable user image") %>
+          </figure>
+        </div>
+      <% end %>
       <div class="media-content">
         <div class="content">
-        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <% if user_signed_in? && (current_user.id == tweet.user_id || current_user.members_only?) %>
           <strong><%= tweet.user.name %></strong><br/>
           <small>@<%= tweet.user.username %></small><br/>
+        <% else %>
+          <strong>anonymous user</strong><br/>
         <% end %>
           <p><%= tweet.tweet %></p>
         </div>

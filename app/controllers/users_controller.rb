@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show]
-  before_action :authenticate_user! #, except: %i[index show]
+  before_action :authenticate_user! 
 
   def show; end
 
