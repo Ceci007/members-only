@@ -11,8 +11,8 @@ This is the fourth collaborative project from the Ruby on Rails module from the 
 - Using Rubocop Linters.
 - Bulma
 
-## 🔴 Live Demo
-[Live Demo Link]()
+## 🔴 Video Demo
+[Video Demo Link](https://drive.google.com/file/d/14ESKVxXOpSgsQ3LRGhYHQ-_mqk2rAG9q/view?usp=sharing)
 
 ## 🛠 Getting Started
 ## Install 
