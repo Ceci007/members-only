@@ -5,7 +5,7 @@
 This is the fourth collaborative project from the Ruby on Rails module from the Microverse program. It consists of making an authentication web app with users who can register, login and logout, with the Devise gem and also have some social media functionality like posting anonymous comments and having restricted views depending on the role of the user, for example, users with the members-only attribute can see the name and picture of these anonymous users and the ones with the role admin can even delete accounts.
 ![app screenshot](./app_screenshot.png)
 
-## 🔧 Built With
+## 🔧 Built With these features
 - Ruby. v2.6.6
 - Ruby on Rails. v6.0.3.3
 - Using Rubocop Linters.
