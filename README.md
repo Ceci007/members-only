@@ -14,7 +14,7 @@ This is the fourth collaborative project from the Ruby on Rails module from the 
 ## 🔴 Video Demo and Live Demo of the app
 [Video Demo Link](https://drive.google.com/file/d/14ESKVxXOpSgsQ3LRGhYHQ-_mqk2rAG9q/view?usp=sharing)
 
-[Live Demo Link]()
+[Live Demo Link](https://members-club.herokuapp.com)
 
 ## 🛠 Getting Started
 ## Install 
