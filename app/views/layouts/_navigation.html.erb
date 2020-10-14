@@ -15,14 +15,7 @@
           <div class="navbar-item">
             <div class="buttons">
               <%= link_to 'New Tweeet', root_path, class: "button is-info" %>
-              <% if user_signed_in? %>
-                <%= link_to 'Members profile', users_path, class: "button is-light" %>
-                <%= link_to current_user.name, edit_user_registration_path, class: 'button is-light' %>
-                <%= link_to 'Log out', destroy_user_session_path, method: :delete, class: 'button is-light' %>
-              <% else %>
-                <%= link_to 'Sign in', new_user_session_path, class: 'button is-light' %>
-                <%= link_to 'Sign up', new_user_registration_path, class: 'button is-light' %>
-              <% end %>
+              <%= is_signed_in  %>
             </div>
           </div>
         </div>
