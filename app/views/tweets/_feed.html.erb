@@ -14,7 +14,7 @@
 <% @tweets.each do |tweet| %>
   <div class="box">
     <article class='media'>
-      <% if user_signed_in? && (current_user.id == tweet.user_id || current_user.members_only? || current_user.admin?) %>
+      <% if anonymous_user?(tweet) %>
         <div class="media-left">
           <figure class="image is-64x64">
             <%= gravatar_image_tag(tweet.user.email, size: 64, alt: tweet.user.name) %>
@@ -29,7 +29,7 @@
       <% end %>
       <div class="media-content">
         <div class="content">
-        <% if user_signed_in? && (current_user.id == tweet.user_id || current_user.members_only? || current_user.admin?) %>
+        <% if anonymous_user?(tweet) %>
           <strong><%= tweet.user.name %></strong><br/>
           <small>@<%= tweet.user.username %></small><br/>
         <% else %>
@@ -37,7 +37,7 @@
         <% end %>
           <p><%= tweet.tweet %></p>
         </div>
-        <% if user_signed_in? && current_user.id == tweet.user_id %>
+        <% if current_user_signed_in?(tweet) %>
           <nav class="level">
             <div class="level-left is-mobile">
               <%= link_to tweet, class: 'level-item transparent' do %>

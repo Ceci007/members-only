@@ -45,7 +45,7 @@
         <div class="panel-block">
           <time datetime="2016-1-1">Joined <%= time_ago_in_words(user.created_at) %> ago</time>
           </div>
-        <% if user_signed_in? && current_user.admin? %>
+        <% if user_admin_signed_in?(user) %>
           <div class="buttons p-all-small">
             <%= link_to 'Delete', user_path(user), class: "button is-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
           </div>
