@@ -32,8 +32,6 @@
         <% if anonymous_user?(tweet) %>
           <strong><%= tweet.user.name %></strong><br/>
           <small>@<%= tweet.user.username %></small><br/>
-        <% else %>
-          <strong>anonymous user</strong><br/>
         <% end %>
           <p><%= tweet.tweet %></p>
         </div>
@@ -43,9 +41,15 @@
               <%= link_to tweet, class: 'level-item transparent' do %>
                 <span class='icon'><i class="fa fa-link" aria-hidden='true'></i></span>
               <% end %>
-              <%= link_to edit_tweet_path(tweet), class: "level-item transparent" do%>
+              
+              <%
+=begin%>
+ <%= link_to edit_tweet_path(tweet), class: "level-item transparent" do%>
                 <span class='icon'><i class='fa fa-pencil' aria-hidden='true'></i></span>
-              <% end %>
+              <% end %> 
+<%
+=end%>
+
               <%= link_to tweet, method: :delete, class: 'transparent', data: { confirm: 'Are you sure you want to delete this tweet?' } do %>
                 <span class='icon'><i class='fa fa-trash-o' aria-hidden='true'></i></span>
               <% end %>

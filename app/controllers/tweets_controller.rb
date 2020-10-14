@@ -1,21 +1,17 @@
 class TweetsController < ApplicationController
   before_action :set_tweet, only: %i[show edit update destroy]
   before_action :authenticate_user!, except: %i[index show]
-
+# edit updateshow edit update destroy
   # GET /tweets
   # GET /tweets.json
   def index
-    if user_signed_in?
       @tweets = Tweet.all.order('created_at DESC')
       @tweet = Tweet.new
-    else
-      redirect_to new_user_session_path
-    end
   end
 
   # GET /tweets/1
   # GET /tweets/1.json
-  def show; end
+  # def show; end
 
   # GET /tweets/new
   def new
@@ -24,7 +20,7 @@ class TweetsController < ApplicationController
   end
 
   # GET /tweets/1/edit
-  def edit; end
+  # def edit; end
 
   # POST /tweets
   # POST /tweets.json
