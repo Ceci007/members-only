@@ -1,0 +1,17 @@
+<div class="column is-half">
+<%= article_tweet_form %> 
+<% @tweets.each do |tweet| %>
+  <div class="box">
+    <article class='media'>
+      <%= anonymous_user?(tweet) %>
+      <div class="media-content">
+        <div class="content">
+        <%= anonymous_user_names(tweet) %>
+          <p><%= tweet.tweet %></p>
+        </div>
+        <%= process_tweet(tweet) %>
+      </div>
+    </article>
+  </div>
+<% end %>
+</div>

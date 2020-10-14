@@ -1,0 +1,23 @@
+ <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: 'navbar-item' do %>
+          <h1 class='title is-5'>members-only</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target='navbarExample'>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="navbar-item">
+            <div class="buttons">
+              <%= link_to 'New Tweeet', root_path, class: "button is-info" %>
+              <%= signed_in?  %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>

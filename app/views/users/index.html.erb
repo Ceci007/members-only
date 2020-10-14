@@ -1,0 +1,55 @@
+<div class="container my-10" >
+  <h1 class="title my-10">list of profiles</h1>
+    <% @users.each do |user| %>
+      <nav class="panel">
+        <p class="panel-heading">Profile</p>
+        <div class="panel-block">
+          <article class="media">
+            <div class="media-left">
+              <figure class="image is-64x64">
+                <%= gravatar_image_tag(user.email, size: 64, alt: user.username) %>
+              </figure>
+            </div>
+            <div class="media-content">
+              <div class="content">
+                <p>
+                  <strong><%= link_to user.name, user, class: 'link' %></strong><br />
+                  <small>@<%= user.username %></small>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="panel-block">
+          <div class="level is-mobile">
+            <div class="level-item has-centered-text">
+              <div>
+                <p class="heading">Tweeets</p>
+                <p class="title is-6"><%= user.tweets.count %></p>
+              </div>
+            </div>
+            <div class="level-item has-centered-text">
+              <div>
+                <p class="heading">Following</p>
+                <p class="title is-6">123</p>
+              </div>
+            </div>
+              <div class="level-item has-centered-text">
+              <div>
+                <p class="heading">Followers</p>
+                <p class="title is-6">465K</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-block">
+          <time datetime="2016-1-1">Joined <%= time_ago_in_words(user.created_at) %> ago</time>
+          </div>
+        <% if user_admin_signed_in?(user) %>
+          <div class="buttons p-all-small">
+            <%= link_to 'Delete', user_path(user), class: "button is-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+        <% end %>
+      </nav>
+    <% end %>
+</div>
