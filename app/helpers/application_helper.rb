@@ -1,8 +1,8 @@
 module ApplicationHelper
-  def is_signed_in 
+  def signed_in?
     if user_signed_in?
       render 'layouts/navigation_signin'
-    else 
+    else
       render 'layouts/navigation_signout'
     end
   end
